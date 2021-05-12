@@ -3,3 +3,24 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body{
+  background-color: black;
+}
+
+.movies{
+  display:flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.movies li {
+  padding: 1rem;
+  box-shadow: 0 0 15px 5px #ff000066;
+  margin: 2rem;
+}
+
+.movies li img {
+  border-radius: 2%;
+}
+
