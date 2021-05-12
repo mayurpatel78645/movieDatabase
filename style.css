@@ -22,6 +22,7 @@ body{
   padding: 1rem;
   box-shadow: 0 0 15px 5px #ff000066;
   margin: 2rem;
+  list-style: none;
 }
 
 .movies li img {
