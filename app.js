@@ -7,8 +7,9 @@
 //parse resposne
 //insert into dom or render page
 
-const url = 'http://www.omdbapi.com/?apikey=89a15f2d&s=transformers' //change later to receive
+
 const movieList = document.querySelector('.movies')
+const search = document.querySelector('.search')
 
 //input from event listerner
 
@@ -19,24 +20,37 @@ const dataRequest = async (url) => {
   return responseData.Search
 }
 
-dataRequest(url)
-.then((responseData) => {
-  render(responseData)
-})
+
 
 
 const render = (data) => {
-
+  console.log(movieList.innerHTML)
+  movieList.innerHTML = ''
   data.forEach((movie) => {
 
     movieList.insertAdjacentHTML('beforeend', `
     <li>
-    <img src='${movie.Poster}'></img>
+    <img src='${movie.Poster === 'N/A' ? movie.Poster = '/images/default_image.jpg' : movie.Poster}'></img>
     </li>
     `)
 
 })
-  
+console.log(movieList.innerHTML)
 }
 
+function handleEvent(e) {
+   if(e.target.nodeName === 'FORM') {
+    e.preventDefault()
+    console.log('event happened')
+    const url = `http://www.omdbapi.com/?apikey=89a15f2d&s=${e.target.firstElementChild.value}`
+    dataRequest(url)
+    .then((responseData) => {
+    render(responseData)
+    e.target.firstElementChild.value = ''
+  })
+        
+  } 
+} 
+
+search.addEventListener('submit', handleEvent)
 
