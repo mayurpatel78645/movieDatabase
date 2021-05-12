@@ -5,7 +5,11 @@
 }
 
 body{
+  /*background: url(/images/black_background.jpg);
+  background-size: cover;
+  opacity: 0.9*/
   background-color: black;
+  color: whitesmoke
 }
 
 .movies{
@@ -22,5 +26,11 @@ body{
 
 .movies li img {
   border-radius: 2%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 5rem 0rem 5rem;
 }
 
