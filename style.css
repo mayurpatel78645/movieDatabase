@@ -39,3 +39,33 @@ body{
   
 }
 
+.overlay {
+  position: relative;
+  display: flex;
+  
+  
+  justify-content: center;
+  align-content: center;
+ 
+}
+
+.overlay p {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  background-color: white;
+  color: black;
+  height: 200px;
+  width: 100px;
+
+}
+
+li:hover p {
+  display: inline-block;
+}
+
+.image:hover {
+  opacity: 0.9;
+}
