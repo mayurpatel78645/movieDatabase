@@ -27,16 +27,40 @@ const render = (data) => {
   data.Search.forEach((movie) => {
     movieList.insertAdjacentHTML('beforeend', `
     <li data-id=${movie.imdbID}>
+    <div class = 'overlay'>
     <img class='image' src='${movie.Poster === 'N/A' ? movie.Poster = '/images/default_image.jpg' : movie.Poster}'></img>
+    
+    </div>
     </li>
     `
     )
 }
 )
-
-
-//console.log(movieList.innerHTML)
 }
+
+const renderHover =  (data) => {
+  console.log(data)
+  const overlay = document.querySelectorAll('.overlay')
+  overlay.innerHTML = ''
+  overlay.forEach(ele => {
+    
+    ele.insertAdjacentHTML('beforeend', `
+    <p>${data.Title}</p>
+    <p>${data.Plot}</p>
+    <p>${data.imdbRating}</p>
+    
+    `
+    )
+
+  })
+  
+  
+  
+  
+
+
+}
+
 
 function handleEvent(e) {
   
@@ -62,12 +86,14 @@ function handleEvent(e) {
 } 
 
 function handleHover(e) {
-  
-  const id = e.target.parentElement.dataset.id;
+  //console.log(e.target)
+  const id = e.target.parentElement.parentElement.dataset.id;
   const url = `http://www.omdbapi.com/?apikey=89a15f2d&i=${id}`;
   dataRequest(url)
   .then(data => {
-    console.log(data)
+    console.log(data.Title, data.imdbRating, data.Plot)
+  renderHover(data)
+
   }
     ) ;
   
