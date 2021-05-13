@@ -12,10 +12,12 @@ body{
   color: whitesmoke
 }
 
-.movies{
+.movies {
   display:flex;
   flex-wrap: wrap;
   padding: 2rem;
+  border-top: 2px solid #ff000066;
+  margin-top: 3rem;
 }
 
 .movies li {
@@ -29,9 +31,11 @@ body{
   border-radius: 2%;
 }
 
+
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 3rem 5rem 0rem 5rem;
+  
 }
 
